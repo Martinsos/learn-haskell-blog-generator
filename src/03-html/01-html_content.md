@@ -259,3 +259,4 @@ main = putStrLn
                 (wrapHtml "Hello, world!")
 ```
 
+COMMENT: Maybe mention ormolu here? Since this is practical book, it would make sense to mention it?

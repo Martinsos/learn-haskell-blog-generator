@@ -32,6 +32,8 @@ a concise (and often safe) way, and by embedding we get to use the full power of
 the host language for our domain logic, including syntax highlighting and
 various tools available for the language.
 
+COMMENT: What always confuses me is the line between EDSL and library. I guess all EDSLs are also libraries. But when does the library qualify as EDSL? Isn't EDSL just a fancy name for a library? Why don't we just call it a library? What differentiates normal library from a EDSL? I am guessing that reader of this page might ask themselves the same question. Maybe we can answer those questions upfront? Emphasize that these are really just libraries, nothing fancy to it?
+
 The drawback of embedding domain specific languages is that we have to adhere
 the rules of the programming language we embed in, such as syntactic and semantic rules.
 

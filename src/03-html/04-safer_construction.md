@@ -14,6 +14,8 @@ and make sure we can't mix the two.
 For example, we can represents seconds, minutes, grams and yens using integer values,
 but we don't want to accidentally mix grams and seconds.
 
+COMMENT: I find an explanation above a bit complex. Can we start with smth much simpler? Smth like: `newtype` allows us to define a new type based on already existing type. It just wraps that existing type. You might wonder, what is the purpose of it if it just wraps it and doesn't add anything to it? Well, the whole point is that this new type (pun intended) is considered to be different from the type it was based on, and can't be mixed with it directly. So this allows us to have special `Seconds` type, `Grams` type and `Yens` type, which could all be based on `Int`, but still we can't mix any of them -> if function expects `Seconds`, you can't give it `Grams` or even `Int` -> instead, you have to give it `Seconds` (even though it is really just an `Int` on the inside.).
+
 In our case we want to represent structured HTML using textual values,
 but distinguish them from everyday strings that are not valid HTML.
 
@@ -28,6 +30,12 @@ For example in our case we can define a distinct type for `Html` like this:
 ```hs
 newtype Html = Html String
 ```
+
+COMMENT: Explanations below feel a little complex to me. Terms like "types name space" and "values name space" can be pretty abstract to beginner, I think.
+  Also, type constructor and data constructor are introduced suddenly below. Type constructor is mixed with "type name".
+  I understand these are all complex things, but I wonder if it would be good to organize this a bit differently and make sure that terms are introduced one by one?
+  I personally loved it in another book when they first explained me terms "type constructor" and "data constructor", that helped me down the road.
+  Maybe newtype is not the best way to introduce these terms though, but `data` would be better? Hmmm. I don't have a great solution here at the moment.
 
 The first `Html`, to the left of the equals sign, lives in the _types_
 name space, meaning that you will only see that name to the right of a
@@ -57,6 +65,10 @@ Html :: String -> Html
 **Note**: We cannot use an expression of type `Html` the same way we'd
 use a `String`. so `"hello " <> Html "world"` would fail at type
 checking.
+
+COMMENT: This sentence also seems a bit complex, mentioning "domain types" and similar.
+  I feel that this whole section could benefit from more examples, interwined with simpler,
+  more direct explanations that use less abstract terms and more simpler talk.
 
 This is useful when we want *encapsulation*. We can define and use
 existing representation and functions for our underlying type, but not

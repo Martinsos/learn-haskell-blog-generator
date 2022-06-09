@@ -7,6 +7,12 @@ to compile and run it.
 > [haskell.org/downloads](https://haskell.org/downloads) for instructions on how to download
 > and install a Haskell toolchain.
 
+COMMENT: It is unclear if we should install cabal or stack? On haskell.org/downloads they keep mentioning both. As former user of stack and now cabal user, I would probably vote for cabal, since it seems to be close to stack these days + it is more actively developed.
+
+COMMENT: What about the editor? Maybe mention VSCode as ok option to get started quickly and easily?
+
+COMMENT: I wonder if you should have them set up cabal project now, or relatively soon. Since this is a practical book, ideally buy the end of it I would be ready to create a proper Haskell project -> and if I never used cabal but just runghc, I won't be ready. But probably better to do it later in the book?
+
 ## A Haskell source file
 
 A Haskell source file is composed of definitions.
@@ -24,7 +30,7 @@ Note that:
 3. We cannot use the same name more than once in a file
 
 A source file containing a definition of the name `main` can be treated as an executable,
-and the expression `main` is bound to is the entry point to the program.
+and the expression that name `main` is bound to is the entry point to the program.
 
 Let's create a new Haskell source file called `hello.hs`, and write the following line there:
 
@@ -34,10 +40,10 @@ main = putStrLn "<html><body>Hello, world!</body></html>"
 
 We've defined a new name, `main`, and bound it to the expression `putStrLn "<html><body>Hello, world!</body></html>"`.
 
-the body of `main` means calling the function `putStrLn` with the string `"<html><body>Hello, world!</body></html>"`
+The body of `main` is calling the function `putStrLn` with the string `"<html><body>Hello, world!</body></html>"`
 as input. `putStrLn` takes a single string as input and prints that string to the standard output.
 
-__Note__: we don't need parenthesis to pass arguments to functions in Haskell.
+__Note__: In Haskell, we don't need parenthesis after the function name to pass arguments to function.
 
 Running this program will result in the following text printed on the screen:
 
@@ -93,7 +99,6 @@ intepreting programs provides us with faster feedback while we are developing an
 > If you want to learn more about the core Haskell tools, you can read
 > [this article](https://gilmi.me/blog/post/2021/08/14/hs-core-tools),
 > but what's described above is enough for our usage at the moment.
-
 ## More bindings
 
 We can define the HTML string passed to `putStrLn` in a new name instead of passing

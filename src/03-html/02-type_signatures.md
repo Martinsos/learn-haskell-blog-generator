@@ -1,8 +1,8 @@
 # Adding type signatures
 
 Haskell is a **statically typed** programming language. That means that every
-expression has a type, and we check that the types are valid with
-regards to each other before running the program. If we discover that
+expression has a type, and Haskell checks that the types are valid with
+regards to each other before running the program. If Haskell discovers that
 they are not valid, an error message will be printed and the program
 will not run.
 
@@ -103,6 +103,9 @@ exactly like normal expressions. You can define names to them like
 regular values, put them in data structures, pass them to functions,
 everything you can do with regular values like `Int` or `String`.
 
+COMMENT: Eta reduction above seems like a bit big step/jump to me -> maybe first show code example with extra arguments, and only then show the code example where arguments are removed?
+  Just to make it easy to understand what is going on.
+
 The way Haskell treats names is very similar to copy paste. Anywhere
 you see `html_` in the code, you can replace it with `el "html"`. They are
 the same (this is what the equals signs say, right? That the two sides
@@ -134,6 +137,11 @@ marks the head of the lambda function,
 and the arrow (`->`) marks the beginning of the body of the function.
 We can even chain lambda functions, making them "multiple argument functions" by
 defining another lambda in the body of another, like this:
+
+COMMENT: I would maybe slow down here just a bit and provide one example first that has just a simple lambda function that returns primitive value.
+  Example where i.e. you show that `square a = a * a` is the same as `square = \a -> a * a`.
+  Also, what about `\a b -> a + b`? Should we open with that, and then break it into `\a -> \b -> a + b`?
+  It feels to me that lamda function returning a lambda function is relatively complex thing to comprehend.
 
 ```hs
 three = (\num1 -> \num2 -> num1 + num2) 1 2
@@ -273,7 +281,7 @@ Solutions:
 
 </details>
 
-
+COMMENT: You have `main :: IO ()` in final solution, but you never mentioned how we got that.
 
 ---
 
